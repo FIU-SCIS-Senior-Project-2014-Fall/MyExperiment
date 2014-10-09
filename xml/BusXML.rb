@@ -92,16 +92,20 @@ class BusXML
     def printXML
         puts "#{output}"
         puts "\n\n"
-        #j = Hash.from_xml("#{output}").to_json
+        #j = JSON.pretty_generate(Hash.from_xml("#{output}")) 
         #puts "#{j}"
-        #puts "\n\n"
-        j = JSON.pretty_generate(Hash.from_xml("#{output}")) 
-        puts "#{j}"
+    end
+
+    def writeXML
+        filename = "busWith#{@hosts.max}Nodes.xml"
+        target = open(filename, 'w')
+        target.write("#{output}")
     end
 end
 
 if __FILE__ == $0
     bx = BusXML.new()
     bx.buildXML
-    bx.printXML
+    #bx.printXML
+    bx.writeXML
 end
