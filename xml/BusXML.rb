@@ -24,6 +24,8 @@ class BusXML
                     xml.node(:name => 'routing', :type => 'ShortestPath') {}
                     xml.node(:name => 'sub1', :type => 'Net') {
                         xml.node(:name => 'routing', :type => 'ShortestPath') {}
+
+                        # add hosts
                         for i in @hosts
                             xml.node(:name => "h#{i}", :type => 'Host') {
                                 xml.node(:name => 'if_0', :type => 'Interface') {
@@ -38,6 +40,8 @@ class BusXML
                                 end
                             }
                         end
+
+                        # add routers
                         for i in @routers
                             xml.node(:name => "r#{i}", :type => 'Router') {
                                 xml.node(:name => "if_h#{i}", :type => 'Interface') {
@@ -54,6 +58,8 @@ class BusXML
                                 }
                             }
                         end
+
+                        # add links
                         for i in @links
                             if i != @links.min && i != @links.max
                                 r = i - (i / 2)
