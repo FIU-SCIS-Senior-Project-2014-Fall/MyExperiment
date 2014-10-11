@@ -82,7 +82,7 @@ class DumbellXML
     end
 
     def writeXML
-        filename = "dumbellWith#{@hosts.max * 2}Nodes.xml"
+        filename = "dumbbellWith#{@hosts.max * 2}Nodes.xml"
         target = open(filename, 'w')
         target.write("#{output}")
     end
