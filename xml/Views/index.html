@@ -4,7 +4,7 @@
 <html>
   <head>
   <script
-      type="text/javascript" i
+      type="text/javascript" 
       src="http://d3js.org/d3.v3.min.js">
   </script>
   <script
@@ -69,15 +69,22 @@ function makeDiag(error, nodes, links, table) {
                     .enter()
                     .append("line")
                     .style("stroke", "#ccc")
-                    .style("stroke-width", 1)
-                    .attr("marker-end", "url(#end)");
+                    .style("stroke-width", 2)
+                    /*.attr("marker-end", "url(#end)")*/;
     /* Draw the nodes themselves */                
     var nodes = svg.selectAll("circle")
                     .data(nodes)
                     .enter()
                     .append("circle")
-                    .attr("r", 20)
-                    .attr("opacity", 0.5)
+                    .attr("r", function(d) {
+                            if(d.type == "Host"){
+                                return 15;
+                            } 
+                            else 
+                                return 20;
+
+                            })
+                    .attr("opacity", 0.8)
                     .style("fill", function(d,i) { 
                             if(d.type == "Host"){
                                 return color(1);
