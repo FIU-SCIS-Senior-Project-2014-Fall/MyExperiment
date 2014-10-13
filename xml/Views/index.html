@@ -78,7 +78,13 @@ function makeDiag(error, nodes, links, table) {
                     .append("circle")
                     .attr("r", 20)
                     .attr("opacity", 0.5)
-                    .style("fill", function(d,i) { return color(i); })
+                    .style("fill", function(d,i) { 
+                            if(d.type == "Host"){
+                                return color(1);
+                            } 
+                            else 
+                                return color(2);
+                            })
                     .call(force.drag);
     /* Run the Force effect */
     force.on("tick", function() {

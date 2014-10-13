@@ -10,7 +10,7 @@ class Interface < Node
         super(name, type)
         @attributes = Array.new(2)
 
-        @attribute[0] = Attribute.new("bit_rate", 100000000)
-        @attribute[1] = Attribute.new("latency", 0)
+        @attributes[0] = Attribute.new("bit_rate", 100000000)
+        @attributes[1] = Attribute.new("latency", 0)
     end
 end
