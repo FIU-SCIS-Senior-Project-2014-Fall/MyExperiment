@@ -15,10 +15,6 @@
                     <attribute name="bit_rate" value="100000000"/>
                     <attribute name="latency" value="0"/>
                 </node>
-                <node name="if_1" type="Interface">
-                    <attribute name="bit_rate" value="100000000"/>
-                    <attribute name="latency" value="0"/>
-                </node>
             </node>
             <node name="h3" type="Host">
                 <node name="if_0" type="Interface">
@@ -31,16 +27,6 @@
                     <attribute name="bit_rate" value="100000000"/>
                     <attribute name="latency" value="0"/>
                 </node>
-                <node name="if_h2" type="Interface">
-                    <attribute name="bit_rate" value="100000000"/>
-                    <attribute name="latency" value="0"/>
-                </node>
-                <node name="if_gateway" type="Interface">
-                    <attribute name="bit_rate" value="100000000"/>
-                    <attribute name="latency" value="0"/>
-                </node>
-            </node>
-            <node name="r2" type="Router">
                 <node name="if_h2" type="Interface">
                     <attribute name="bit_rate" value="100000000"/>
                     <attribute name="latency" value="0"/>
@@ -60,22 +46,16 @@
                 <ref name="r1" path="..:r1:if_h1"/>
                 <ref name="h1" path="..:h1:if_0"/>
             </node>
-            <node name="l_h2_3" type="Link">
+            <node name="l_h2" type="Link">
                 <attribute name="bandwidth" value="100000000"/>
                 <attribute name="delay" value="1"/>
                 <ref name="r1" path="..:r1:if_h2"/>
                 <ref name="h2" path="..:h2:if_0"/>
             </node>
-            <node name="l_h3_4" type="Link">
-                <attribute name="bandwidth" value="100000000"/>
-                <attribute name="delay" value="1"/>
-                <ref name="r2" path="..:r2:if_h2"/>
-                <ref name="h2" path="..:h2:if_1"/>
-            </node>
             <node name="l_h3" type="Link">
                 <attribute name="bandwidth" value="100000000"/>
                 <attribute name="delay" value="1"/>
-                <ref name="r2" path="..:r2:if_h3"/>
+                <ref name="r1" path="..:r1:if_h3"/>
                 <ref name="h3" path="..:h3:if_0"/>
             </node>
         </node>
