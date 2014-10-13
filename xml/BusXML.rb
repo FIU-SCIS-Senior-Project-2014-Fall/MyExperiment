@@ -7,8 +7,8 @@ require 'active_support/core_ext'
 class BusXML
     attr_accessor :output
 
-    def initialize()
-        @hosts   = ARGV.first.to_i
+    def initialize(numberOfHosts)
+        @hosts   = numberOfHosts
         @routers = @hosts - 1
         @links   = @routers * 2
 
@@ -110,7 +110,7 @@ class BusXML
 end
 
 if __FILE__ == $0
-    bx = BusXML.new()
+    bx = BusXML.new(ARGV.first.to_i)
     bx.buildXML
     #bx.printXML
     bx.writeXML

@@ -7,8 +7,8 @@ require 'active_support/core_ext'
 class RingXML
     attr_accessor :output
 
-    def initialize()
-        @hosts   = ARGV.first.to_i
+    def initialize(numberOfHosts)
+        @hosts   = numberOfHosts
         @routers = 1
         @links   = 1
         @subs    = @hosts-1
@@ -94,7 +94,7 @@ class RingXML
 end
 
 if __FILE__ == $0
-    rx = RingXML.new()
+    rx = RingXML.new(ARGV.first.to_i)
     rx.buildXML
     #bx.printXML
     rx.writeXML

@@ -7,8 +7,8 @@ require 'active_support/core_ext'
 class StarXML
     attr_accessor :output
 
-    def initialize()
-        @hosts   = ARGV.first.to_i
+    def initialize(numberOfHosts)
+        @hosts   = numberOfHosts
         @routers = 1
         @links   = @hosts
 
@@ -67,22 +67,28 @@ class StarXML
     end
 
     def printXML
-        puts "#{output}"
-        puts "\n\n"
-        #j = JSON.pretty_generate(Hash.from_xml("#{output}")) 
-        #puts "#{j}"
+        j = Hash.from_xml("#{output}") 
+        puts "#{j}"
     end
 
     def writeXML
         filename = "starWith#{@hosts.max}Nodes.xml"
-        target = open(filename, 'w')
+        target   = open(filename, 'w')
         target.write("#{output}")
     end
+
+    def writeJSON
+        filename = "starWith#{@hosts.max}Nodes.json"
+        target   = open(filename, "w")
+        target.write("#{JSON.pretty_generate(Hash.from_xml("#{output}"))}")
+    end
+
 end
 
 if __FILE__ == $0
-    bx = StarXML.new()
-    bx.buildXML
-    #bx.printXML
-    bx.writeXML
+    sx = StarXML.new(ARGV.first.to_i)
+    sx.buildXML
+    #sx.printXML
+    sx.writeXML
+    #sx.writeJSON
 end

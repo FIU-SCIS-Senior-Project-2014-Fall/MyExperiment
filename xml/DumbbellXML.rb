@@ -89,8 +89,8 @@ class DumbellXML
 end
 
 if __FILE__ == $0
-    bx = DumbellXML.new()
-    bx.buildXML
-    #bx.printXML
-    bx.writeXML
+    dx = DumbellXML.new()
+    dx.buildXML
+    #dx.printXML
+    dx.writeXML
 end
