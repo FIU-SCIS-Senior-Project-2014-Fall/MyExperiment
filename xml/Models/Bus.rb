@@ -1,14 +1,6 @@
 #!/usr/bin/env ruby
 
 require './Model.rb'
-require './Host.rb'
-require './Router.rb'
-require './Link.rb'
-require './Ref.rb'
-require './Replica.rb'
-
-require 'json'
-require 'active_support/core_ext'
 
 class Bus < Model
     def initialize(numberOfHosts, type='Bus')
@@ -64,6 +56,10 @@ class Bus < Model
         for i in 1..@replicas.length
             @replicas[i] = Replica.new("sub1", "Net")
         end
+    end
+
+    def generateXML
+
     end
 
     def d3ify
@@ -122,6 +118,7 @@ class Bus < Model
                 json[i-1]["target"] = (@hosts.length - 1)
             end
         end
+
         #prettify input
         #puts JSON.pretty_generate(json)
         target.write(JSON.pretty_generate(json))
