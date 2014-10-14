@@ -38,7 +38,7 @@ class Bus < Model
                 h = (i - (i / 2)) + ((i - 1) % 2)
                 @links[i-1] = Link.new("l_h#{i}_h#{i+1}")
                 @links[i-1].refs[0] = Ref.new("r#{r}", "..:r#{r}:if_h#{h}")
-                @links[i-1].refs[1] = Ref.new("h#{h}", "..h#{h}:if_#{i%2}")
+                @links[i-1].refs[1] = Ref.new("h#{h}", "..:h#{h}:if_#{i%2}")
             elsif i == 1
                 @links[i-1] = Link.new("l_h#{i}")
                 @links[i-1].refs[0] = Ref.new("r1", "..:r1:if_h1")
@@ -53,13 +53,13 @@ class Bus < Model
     end
 
     def addReplicas
-        for i in 1..@replicas.length
+        for i in 0..@replicas.length-1
             @replicas[i] = Replica.new("sub1", "Net")
         end
     end
 
+    #unfinished
     def generateXML
-
     end
 
     def d3ify
