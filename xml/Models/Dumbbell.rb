@@ -97,9 +97,18 @@ class Dumbbell < Model
         json += "]"
         json = JSON.parse(json)
 
-        for
-            
+        link_index = 0
+
+        for i in 0..@max_routers-1
+            for j in 0..(@max_hosts / 2)
+                json[link_index]["source"] = j + (3 * i)
+                json[link_index]["target"] = @max_hosts + i
+                link_index += 1
+            end
         end
+
+        json[link_index]["source"] = @max_links - 2
+        json[link_index]["target"] = @max_links - 1
 
         target.write(JSON.pretty_generate(json))
     end
