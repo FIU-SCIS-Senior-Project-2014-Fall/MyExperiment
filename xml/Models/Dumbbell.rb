@@ -3,10 +3,10 @@
 require './Model.rb'
 
 class Dumbbell < Model
-    def initialize(numberOfHosts, type='Dumbbel')
-        super(numberOfHosts, type)
+    def initialize(numberOfHosts, type='Dumbbell')
+        super((numberOfHosts * 2), type)
         @routers  = Array.new(2)
-        @links    = Array.new((@hosts.length*2)+1)
+        @links    = Array.new((numberOfHosts * 2) + 1)
         @replicas = Array.new(2)
 
         @max_hosts   = @hosts.length
@@ -27,10 +27,11 @@ class Dumbbell < Model
 
     def addRouters
         for i in 0..@max_routers-1
-            @routers[i] = new Router.new("r#{i+1}", @max_hosts)
+            @routers[i] = Router.new("r#{i+1}", @max_hosts)
         end
     end
-    
+   
+    #unfinished
     def addLinks
         link_index = 0
 
@@ -50,14 +51,13 @@ class Dumbbell < Model
         @links[link_index].refs[1] = Ref.new("", "")
     end
 
-    #replicas dont have proper names
+    #unfinished
     def addReplicas
         for i in 0..@replicas.length-1
             @replicas[i] = Replica.new("sub", "Net")
         end
     end
 
-    #unfinished
     def generateXML
     end
 
@@ -87,7 +87,7 @@ class Dumbbell < Model
         target = open(links_filename, 'w')
         json = "["
 
-        for i in 0..@max_links.length-1
+        for i in 0..@max_links-1
             json += @links[i].to_json
             if i != @max_links-1
                 json += ","
@@ -100,7 +100,7 @@ class Dumbbell < Model
         link_index = 0
 
         for i in 0..@max_routers-1
-            for j in 0..(@max_hosts / 2)
+            for j in 0..((@max_hosts - 1) / 2)
                 json[link_index]["source"] = j + (3 * i)
                 json[link_index]["target"] = @max_hosts + i
                 link_index += 1
@@ -116,4 +116,5 @@ end
 
 if __FILE__ == $0
     d = Dumbbell.new(3)
+    d.d3ify
 end
