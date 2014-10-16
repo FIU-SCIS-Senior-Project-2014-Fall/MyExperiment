@@ -1,8 +1,23 @@
-<div class ="center hero-unit">
 <% provide(:title, 'Home') %>
-    <h1>Welcome to MyExperiment</h1>
-    <p>Find me in app/views/static_pages/home.html.erb</p>
-    <%= link_to "Sign up", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+<% if signed_in? %>
+    <div class="row">
+        <aside class="span4">
+            <section>
+                <%= render 'shared/user_info' %>
+            </section>
+            <section<
+                <%= render 'shared/experiment_form' %>
+            </section>
+        </aside>
+    </div>
+<% else %>
+    <div class ="center hero-unit">
+        <h1>Welcome to MyExperiment</h1>
+        <h2>
+            This is the home page for <a href="">MyExperiment</a> 
+        </h2>
 
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+        <%= link_to "Sign up", signup_path, class: "btn btn-large btn-primary" %>
+    </div>
+    <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% end %>

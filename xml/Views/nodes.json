@@ -18,5 +18,9 @@
   {
     "name": "r2",
     "type": "Router"
+  },
+  {
+    "name": "r3",
+    "type": "Router"
   }
 ]
