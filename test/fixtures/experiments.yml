@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyString
+  type: 
+  nodes: 1
   user_id: 1
 
 two:
-  content: MyString
+  type: 
+  nodes: 1
   user_id: 1
