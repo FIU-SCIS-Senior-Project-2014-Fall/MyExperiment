@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+    has_many :experiments, dependent: :destroy
+
     # downcase email for db
     before_save { self.email = email.downcase }
     before_create :create_remember_token    
@@ -16,8 +18,6 @@ class User < ActiveRecord::Base
     # password validation
     validates :password, length: { minimum: 6}
     
-    has_many :models
-
     def User.new_remember_token
         SecureRandom.urlsafe_base64
     end
