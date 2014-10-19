@@ -8,16 +8,13 @@
             </h1>
         </section>
     </aside>
-    <div class="span8">
+    <div class="col-md-8">
         <% if @user.experiments.any? %>
             <h3>Experiments (<%= @user.experiments.count %>)</h3>
-            <ol class="experiment">
+            <ol class="experiments">
                 <%= render @experiments %>
             </ol>
             <%= will_paginate @experiments %>
         <% end %>
     </div>
 </div>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

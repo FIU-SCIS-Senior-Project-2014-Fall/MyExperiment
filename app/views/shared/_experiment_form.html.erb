@@ -1,10 +1,16 @@
 <%= form_for(@experiment) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="type">
-    <%= f.radio_button :type, 'Bus' %>
-    <%= label :type_label, 'Bus' %>
+  <div class="Type">
+    <%= f.radio_button :topoType, 'Linear' %>
+    <%= label :type_label, 'Linear' %>
+    <%= f.radio_button :topoType, 'Dumbbell' %>
+    <%= label :type_label, 'Dumbbell' %>
+    <%= f.radio_button :topoType, 'Star' %>
+    <%= label :type_label, 'Star' %>
+    <%= f.radio_button :topoType, 'Ring' %>
+    <%= label :type_label, 'Ring' %>
   </div>
-  <div class="nodes">
+  <div class="Nodes">
     <%= f.number_field :nodes %>
   </div>
   <%= f.submit "Create", class: "btn btn-large btn-primary" %>

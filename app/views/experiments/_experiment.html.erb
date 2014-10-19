@@ -1,0 +1,6 @@
+<li id="experiment-<%= experiment.id %>">
+<%= link_to gravatar_for(experiment.user, size: 50), experiment.user %>
+    <span class="user"><%= link_to experiment.user.name, experiment.user %></span><br>
+    <span class="topoType"><%= link_to experiment.nodes, experiment %></span>
+    <span class="timestamp"><%= time_ago_in_words(experiment.created_at) %> ago. </span>
+</li>

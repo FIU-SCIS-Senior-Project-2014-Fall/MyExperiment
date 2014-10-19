@@ -1,17 +1,17 @@
 <% provide(:title, 'Home') %>
 <% if signed_in? %>
     <div class="row">
-        <aside class="span4">
-            <section>
+        <aside class="col-md-4">
+            <section class="user_info">
                 <%= render 'shared/user_info' %>
             </section>
-            <section<
+            <section class="experiments_form">
                 <%= render 'shared/experiment_form' %>
             </section>
         </aside>
     </div>
 <% else %>
-    <div class ="center hero-unit">
+    <div class ="center jumbotron">
         <h1>Welcome to MyExperiment</h1>
         <h2>
             This is the home page for <a href="">MyExperiment</a> 

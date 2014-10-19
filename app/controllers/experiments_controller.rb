@@ -1,8 +1,8 @@
 class ExperimentsController < ApplicationController
-    before_action :signed_in_user
+    before_action :signed_in_user, only: [:index, :edit]
     
     def index
-
+        @experiment = Experiment.paginate(page: params[:page])
     end
 
     def create
@@ -15,12 +15,19 @@ class ExperimentsController < ApplicationController
         end
     end
 
+    def display
+        if @experiment.topoType == 1
+            b = Bus.new(@experiment.nodes)
+            b.d3ify
+        end
+    end
+
     def destroy
 
     end
 
     private
         def experiment_params
-            params.require(:experiment).permit(:content)
+            params.require(:experiment).permit(:topoType, :nodes)
         end
 end
