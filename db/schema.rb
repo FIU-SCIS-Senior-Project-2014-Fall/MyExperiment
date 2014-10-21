@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019105314) do
+ActiveRecord::Schema.define(version: 20141021135623) do
 
   create_table "experiments", force: true do |t|
     t.integer  "nodes"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 20141019105314) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "topoType"
+    t.string   "name"
+    t.string   "description"
+    t.string   "tags"
   end
 
   add_index "experiments", ["user_id", "created_at"], name: "index_experiments_on_user_id_and_created_at"

@@ -1,8 +1,14 @@
+require 'Bus.rb'
+
 class ExperimentsController < ApplicationController
     before_action :signed_in_user, only: [:index, :edit]
     
     def index
-        @experiment = Experiment.paginate(page: params[:page])
+        @experiments = Experiment.paginate(page: params[:page])
+    end
+
+    def show
+        @experiment = Experiment.find(params[:id])
     end
 
     def create
@@ -12,13 +18,6 @@ class ExperimentsController < ApplicationController
             redirect_to root_url
         else
             render 'static_pages/home'
-        end
-    end
-
-    def display
-        if @experiment.topoType == 1
-            b = Bus.new(@experiment.nodes)
-            b.d3ify
         end
     end
 

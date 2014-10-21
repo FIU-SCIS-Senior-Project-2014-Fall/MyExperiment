@@ -1,0 +1,18 @@
+<% provide(:title, @experiment.name) %>
+<div class="row">
+    <aside class="span4">
+        <section>
+            <h1>
+                Name: <%= @experiment.name %>
+            </h1>
+            <p>
+                Topology: <%= @experiment.topoType %><br>
+                Number of nodes: <%= @experiment.nodes %><br>
+                Description: <%= @experiment.description %>
+                Tags: <%= @experiment.tags %>
+            </p>
+            <button type="button" class="btn btn-primary btn-lg btn-block" disabled="disabled">Fork</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" disabled="disbaled">Download</button>
+        </section>
+    </aside>
+</div>
