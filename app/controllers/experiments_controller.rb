@@ -1,5 +1,3 @@
-require 'Bus.rb'
-
 class ExperimentsController < ApplicationController
     before_action :signed_in_user, only: [:index, :edit]
     

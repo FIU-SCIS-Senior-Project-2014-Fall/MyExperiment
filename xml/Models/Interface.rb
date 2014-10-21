@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require 'Node.rb'
-require 'Attribute.rb'
+require './Node.rb'
+require './Attribute.rb'
 
 class Interface < Node
     attr_accessor :name, :type, :attributes

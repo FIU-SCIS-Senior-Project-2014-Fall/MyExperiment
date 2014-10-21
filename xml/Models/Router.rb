@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require 'Node.rb'
-require 'Interface.rb'
+require './Node.rb'
+require './Interface.rb'
 
 class Router < Node
     attr_accessor :interfaces

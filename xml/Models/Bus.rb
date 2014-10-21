@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'Model.rb'
+require './Model.rb'
 
 class Bus < Model
     def initialize(numberOfHosts, type='Bus')
@@ -124,4 +124,9 @@ class Bus < Model
         target.write(JSON.pretty_generate(json))
     end
 
+end
+
+if __FILE__ == $0
+    b = Bus.new(3)
+    b.d3ify
 end

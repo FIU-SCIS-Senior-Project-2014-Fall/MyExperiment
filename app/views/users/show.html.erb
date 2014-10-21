@@ -10,7 +10,7 @@
     </aside>
     <div class="col-md-8">
         <% if @user.experiments.any? %>
-            <h3>Created experiments (<%= @user.experiments.count %>)</h3>
+            <h3>Published experiments (<%= @user.experiments.count %>) | Private experiments (0)</h3>
             <ol class="experiments">
                 <%= render @experiments %>
             </ol>
