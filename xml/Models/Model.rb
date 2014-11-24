@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require './Model.rb'
 require './Host.rb'
 require './Router.rb'
 require './Link.rb'

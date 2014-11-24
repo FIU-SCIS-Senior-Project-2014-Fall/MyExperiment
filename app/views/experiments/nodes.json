@@ -1,0 +1,26 @@
+[
+  {
+    "name": "h1",
+    "type": "Host"
+  },
+  {
+    "name": "h2",
+    "type": "Host"
+  },
+  {
+    "name": "h3",
+    "type": "Host"
+  },
+  {
+    "name": "r1",
+    "type": "Router"
+  },
+  {
+    "name": "r2",
+    "type": "Router"
+  },
+  {
+    "name": "r3",
+    "type": "Router"
+  }
+]
